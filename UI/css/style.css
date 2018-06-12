@@ -1,0 +1,39 @@
+
+*{
+    margin: 0;
+    padding-top: 0;
+    text-decoration: none;
+}
+
+
+body{
+    max-height: 400px;
+    font-family:"Arial", Serif;
+    background-color: #f4f4f4;
+    opacity: 0.9;
+    overflow-x: hidden;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    width: 100%;
+    padding: 0;
+}
+
+
+/* Login form styles */
+.login-content{
+    margin: 150px 200px;
+}
+
+input{
+    width: 60%;
+    padding: 12px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input[type=submit]{
+    background-color: #091823;
+    color: #fff;
+}
