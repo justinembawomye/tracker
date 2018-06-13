@@ -21,7 +21,7 @@ body{
 
 
 /* Login form styles */
-#heading{
+.login-heading{
     color: #444;
     margin: 10px 35px;
 }

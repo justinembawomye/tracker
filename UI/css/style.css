@@ -22,7 +22,7 @@ body{
 
 
 /* Login form styles */
-.heading{
+.login-heading{
     color: #444;
     margin: 10px 35px;
 }
@@ -55,7 +55,7 @@ input[type=submit]{
 }
 
 .heading{
-    color: #fff;
+    color: #444;
     margin-left: -40px;
     }
   
