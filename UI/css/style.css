@@ -22,14 +22,20 @@ body{
 
 
 /* Login form styles */
+.heading{
+    color: #444;
+    margin: 10px 35px;
+}
 .login-content{
-    margin: 150px 200px;
+    margin: 150px 400px auto;
+    
 }
 
 input{
     width: 60%;
     padding: 12px 10px;
     margin: 8px 0;
+    border:0;
     box-sizing: border-box;
 }
 
@@ -37,3 +43,46 @@ input[type=submit]{
     background-color: #091823;
     color: #fff;
 }
+
+/* End of login styles */
+
+
+/* Register form styles */
+.register-page{
+    width: 700px;
+    padding: 3%;
+    margin: 50px auto; 
+}
+
+.heading{
+    color: #fff;
+    margin-left: -40px;
+    }
+  
+.button #login-btn{
+background-color: #222;
+color: #ddd;
+padding: 10px;
+}
+ button, #r-register{
+    background-color:rgba(12, 17, 86, 0.7);
+     
+ }
+ button, #r-register a{
+    color: #fff;
+    font-size: 12px;
+    padding: 10px;
+}
+
+ button, #r-login{
+    background-color: rgb(10, 134, 51);
+    color: #222;
+}
+button, #r-login a{
+   color: #fff;
+   font-size: 12px;
+   padding: 10px;
+}
+
+
+/* end of register page */
