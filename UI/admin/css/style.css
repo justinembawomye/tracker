@@ -18,7 +18,25 @@ body{
     width: 100%;
     padding: 0;
 }
+.side-menu{
+    width: 25%;
 
+}
+
+.main-content{
+   margin-left: 25%;
+    
+}
+
+nav{
+    margin-top:5px;
+    float: left;
+    margin-left: 50px;
+}
+.nav-list{
+    margin:15px auto 0;
+    padding:0;
+}
 
 /* Login form styles */
 .login-heading{
@@ -43,3 +61,41 @@ input[type=submit]{
     color: #fff;
 }
 
+
+/* table styles */
+
+table{
+    width:100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+table tr{
+    height:40px;  
+    border-bottom:1px solid #162435;
+}
+table tr:first-child{
+    border-top:1px solid #4a4646;
+}
+table td{
+    padding:6px 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+table td,table td a{
+        color:hsl(173, 100%, 2%);
+}
+table tr:hover{
+    color:#fff;
+    background: #0D1727;
+}
+table tr td{
+    padding-right:30px;
+    
+}
+table tr td:first-child {
+    padding:6px;
+}
+
+
+/* end of table styles */
