@@ -5,115 +5,171 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 </head>
 
-<body>
-    
-    <div class="side-menu">
-        <h1>Admin</h1>
-        <nav class="nav">
-            <div>
-                <a href="#">Dashboard</a>
-                <a href="#">Requests</a>
-                <a href="#">Filter requests</a>
-            </div>
-        </nav>
-    </div>
+<body class="body">
+    <h2 class="admin">
+        <i class="fa fa-user-circle" style="font-size:36px"></i>
+        Admin
+    </h2>
 
+    <nav>
+        <p>
+            <a href="index.html">Maintenance tracker App</a>
+        </p>
+        <ul>
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="requests.html">Requests</a>
+            </li>
+            <li>
+                <a href="index.html">logout</a>
+            </li>
+        </ul>
+    </nav>
+    <br>
+    <br>
+
+    <div>
+        <div class="button">
+            <a href="requests.html" id="view-requests">view Requests</a>
+        </div>
+        <br>
+    </div>
+   
+  
+    <div class="filter-by">
+        <div class="dropdown">
+            <h2 id="filter">Filter By:
+                <button class="filter">Priority</h2>
+        </div>
+    
+        <div class="filter-content">
+            <a href="#">First priority</a>
+            <a href="#">Second priority</a>
+            <a href="#">Third priority</a>
+        </div>
+    
+    </div>
+    </div>
 
     <div class="main-content">
         <h2>Welcome Justine</h2>
         <small>Incoming requests</small>
-
-
-        <table>
-            <tbody>
-                <tr>
-                    <a href="#">
-                        <td>
-                            <span>1</span>
-                        </td>
-                        <td>
-                            <a href="#">Enroll now</a>
-                        </td>
-                        <td>
-                            <a href="#">Please contact me as soon as you see this</a>
-                        </td>
-                        <td>12:45 pm</td>
-                    </a>
-                </tr>
-
-                <tr>
-                    <a href="#">
-                        <td>
-                            <span>2</span>
-                        </td>
-                        <td>
-                            <a href="#">Tinah Tinah</a>
-                        </td>
-                        <td>
-                            <a href="#">Send the HR an email about the infection</a>
-                        </td>
-                        <td>02:05 pm</td>
-                    </a>
-                </tr>
-
-                <tr>
-                    <a href="#">
-                        <td>
-                            <span>3</span>
-                        </td>
-                        <td>
-                            <a href="#">Faith Victoria</a>
-                        </td>
-                        <td>
-                            <a href="#">Go and check orders for August</a>
-                        </td>
-                        <td>1:04pm</td>
-                    </a>
-                </tr>
-
-                
-                <tr>
-                    <a href="#">
-                        <td>
-                            <span>4</span>
-                        </td>
-                        <td>
-                            <a href="#">Sonia</a>
-                        </td>
-                        <td>
-                            <a href="#">Deliver Justine's package before noon</a>
-                        </td>
-                        <td>8:00am</td>
-                    </a>
-                </tr>
-
-                <tr>
-                    <a href="#">
-                        <td>
-                            <span>5</span>
-                        </td>
-                        <td>
-                            <a href="#">M-Tinah</a>
-                        </td>
-                        <td>
-                            <a href="#">Send me an email regarding the meeting</a>
-                        </td>
-                        <td>8:00am</td>
-                    </a>
-                </tr>
-
-
-
-
-
-
-            </tbody>
-        </table>
     </div>
+
+  
+
+    <table>
+      <tbody>
+
+        <tr>
+            <a href="#">
+                <td>
+                    <span>1</span>
+                </td>
+                <td>
+                    <a href="#">Enroll now</a>
+                </td>
+                <td>
+                    <a href="#">Please contact me as soon as you see this</a>
+                </td>
+                <td>12:45 pm</td>
+            </a>
+        </tr>
+
+        <tr>
+            <a href="#">
+                <td>
+                    <span>2</span>
+                </td>
+                <td>
+                    <a href="#">Tinah Tinah</a>
+                </td>
+                <td>
+                    <a href="#">Send the HR an email about the infection</a>
+                </td>
+                <td>02:05 pm</td>
+            </a>
+        </tr>
+
+        <tr>
+            <a href="#">
+                <td>
+                    <span>3</span>
+                </td>
+                <td>
+                    <a href="#">Faith Victoria</a>
+                </td>
+                <td>
+                    <a href="#">Go and check orders for August</a>
+                </td>
+                <td>1:04pm</td>
+            </a>
+        </tr>
+
+        
+        <tr>
+            <a href="#">
+                <td>
+                    <span>4</span>
+                </td>
+                <td>
+                    <a href="#">Emmy</a>
+                </td>
+                <td>
+                    <a href="#">Deliver Justine's package before noon</a>
+                </td>
+                <td>8:00am</td>
+            </a>
+        </tr>
+
+        <tr>
+            <a href="#">
+                <td>
+                    <span>5</span>
+                </td>
+                <td>
+                    <a href="#">M-Tinah</a>
+                </td>
+                <td>
+                    <a href="#">Send me an email regarding the meeting</a>
+                </td>
+                <td>8:00am</td>
+            </a>
+        </tr>
+
+
+
+
+    </tbody>
+    </table>
+
+    </div>
+    <!-- end of container -->
+
+    <footer>
+        <p class="copyright">2018&copy;maintenance tracker</p>
+
+
+        </span>
+        <i class="fa fa-twitter" style="font-size:36px"></i>
+        </span>
+        </span>
+        <i class="fa fa-facebook-square" style="font-size:36px"></i>
+        </span>
+        <span>
+            <i class="fa fa-google-plus-official" style="font-size:36px"></i>
+        </span>
+    </footer>
 
 </body>
 
