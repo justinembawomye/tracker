@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Requests</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="js/app.js"></script>
+
+
+</head>
+
+<body class="body">
+
+    <header>
+
+        <nav>
+            <p>
+                <a href="index.html">Maintenance tracker App</a>
+            </p>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <i class="fa fa-home">Home</i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="user_dashboard.html">User Dashboard</a>
+                    <ul>
+                        <li>
+                            <a href="create_requests.html">create request</a>
+                        </li>
+                        <li>
+                            <a href="requests.html">Request History</a>
+                        </li>
+                    </ul>
+
+                </li>
+
+                <li>
+                    <a href="index.html">logout</a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <div class="header-image">
+
+        </div>
+
+    </header>
+
+    <h1>Make a Request</h1>
+
+    <div class="user-request">
+        <!--make request wrapper-->
+        <form>
+            <div class="requestForm">
+                <select name="requests" class="selectRequest">
+                    <option value="">Maintenance</option>
+                    <option value="">Repair</option>
+                </select>
+            </div>
+            <br>
+
+
+            <div class="client">
+                <label>Fullname</label>
+                <br>
+                <input id="client-name" name="clientName" type="text" placeholder="Client Name">
+                <br>
+                <label>Address</label>
+                <br>
+                <input id="address" name="adress" type="text" placeholder="address">
+            </div>
+            <br>
+
+
+            <div class="createRequest">
+                <label>Description</label>
+                <br>
+                <textarea name="" id="textarea" cols="30" rows="10"></textarea>
+                <br>
+                <br>
+                <button class="btn-request">Make Request</button>
+            </div>
+    </div>
+    <!--make request wrapper-->
+    </form>
+
+
+    <footer>
+        <p class="copyright">2018&copy;maintenance tracker</p>
+
+        </span>
+        <i class="fa fa-twitter" style="font-size:36px"></i>
+        </span>
+
+        </span>
+        <i class="fa fa-facebook-square" style="font-size:36px"></i>
+        </span>
+        <span>
+            <i class="fa fa-google-plus-official" style="font-size:36px"></i>
+        </span>
+    </footer>
+
+</body>
+
+</html>
