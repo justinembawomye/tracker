@@ -9,74 +9,35 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <script src="js/app.js"></script>
-
 
 </head>
 
-<body class="body">
+<body>
 
-    <header>
+    <nav>
+        <p>
+            <a href="#">Maintenance tracker App</a>
+        </p>
+        <ul class="nav-right">
+            <li>
+                <a href="requests.html">Requests</a>
+            </li>
+            <li>
+                <a href="signin.html">logout</a>
+            </li>
 
-        <nav>
-            <p>
-                <a href="index.html">Maintenance tracker App</a>
-            </p>
-            <ul>
-                <li>
-                    <a href="index.html">
-                        <i class="fa fa-home">Home</i>
-                    </a>
-                </li>
+        </ul>
+    </nav>
 
-                <li>
-                    <a href="user_dashboard.html">User Dashboard</a>
-                    <ul>
-                        <li>
-                            <a href="create_requests.html">create request</a>
-                        </li>
-                        <li>
-                            <a href="requests.html">Request History</a>
-                        </li>
-                    </ul>
-
-                </li>
-
-                <li>
-                    <a href="index.html">logout</a>
-                </li>
-
-            </ul>
-        </nav>
-
-        <div class="header-image">
-
-        </div>
-
-    </header>
-
-    <h1>Make a Request</h1>
+    <h2 class="heading-2">Make a Request</h2>
 
     <div class="user-request">
         <!--make request wrapper-->
         <form>
-            <div class="requestForm">
-                <select name="requests" class="selectRequest">
-                    <option value="">Maintenance</option>
-                    <option value="">Repair</option>
-                </select>
-            </div>
-            <br>
-
-
             <div class="client">
-                <label>Fullname</label>
+                <label>Title/Category</label>
                 <br>
-                <input id="client-name" name="clientName" type="text" placeholder="Client Name">
-                <br>
-                <label>Address</label>
-                <br>
-                <input id="address" name="adress" type="text" placeholder="address">
+                <input id="title" name="title" type="text" placeholder="title">
             </div>
             <br>
 
@@ -89,6 +50,7 @@
                 <br>
                 <button class="btn-request">Make Request</button>
             </div>
+        </form>
     </div>
     <!--make request wrapper-->
     </form>
