@@ -33,9 +33,13 @@ h2{
 
 
 /* Login form styles */
+div .user{
+    margin-left: 100px;
+}
 .login-heading{
     color: #444;
-    margin: 10px 35px;
+    margin: 3px;
+    
 }
 .login-content{
     margin: 150px 400px auto;
@@ -212,12 +216,7 @@ textarea{
     width:50%;
 }
 
-#client-name{
-width: 50%;
-}
-#address{
-    width: 50%;
-    }
+
 /* end of make request page styles */
 
 /* footer styles */
@@ -235,3 +234,31 @@ footer{
 }
 
 /* end of footer styles */
+
+
+
+/* requests page styles */
+.float-right{
+    float: right !important;
+}
+
+.request-a{
+    background-color: #113046;
+    color:#ccc;
+    padding: 30px 40px;
+    margin:15px 100px; 
+    border-radius: 10px;
+}
+
+.btn-approve{
+    width: 10%;
+    color: green;
+}
+
+.btn-disapprove{
+    width: 10%;
+    background-color: rgb(131, 39, 39);
+}
+
+
+/* end of requests page styles */
