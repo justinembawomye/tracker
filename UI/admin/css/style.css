@@ -280,3 +280,31 @@ footer{
     padding: 40px;
 }
 /* End of admin dashboard styles */
+
+
+
+/* requests page styles */
+.float-right{
+    float: right !important;
+}
+
+.request-a{
+    background-color: #113046;
+    color:#ccc;
+    padding: 30px 40px;
+    margin:15px 100px; 
+    border-radius: 10px;
+}
+
+.btn-approve{
+    width: 10%;
+    background-color: green;
+}
+
+.btn-disapprove{
+    width: 10%;
+    background-color: rgb(131, 39, 39);
+}
+
+
+/* end of requests page styles */
