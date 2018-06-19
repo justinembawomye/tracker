@@ -105,9 +105,8 @@ button, #r-login a{
    font-size: 12px;
    padding: 10px;
 }
-
-
 /* end of register page */
+
 
 
 /* Navigation bar styles */
@@ -262,3 +261,88 @@ footer{
 
 
 /* end of requests page styles */
+
+
+
+
+/* user dashboard page styles */
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #222;
+}
+
+
+.admin{
+    float: right !important;
+    color: #ddd;
+    padding: 10px;
+}
+
+.sidebar{
+    height: auto;
+    background-color:#113046;
+    min-width: 230px;
+    max-width: 200px;
+    padding: 5px 5px;
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+    justify-content: space-between;
+    position: fixed;
+    overflow-y: scroll;
+    bottom: 0;
+    top: 78px;
+}
+
+.sidebar ul{
+    list-style: none;
+    display: flex;
+    flex-flow: column;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.sidebar li {
+    height: 90%;
+    box-sizing: border-box;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    height: 100%;
+    padding: 10px;
+    display: block;  
+    font-size: 15px;
+}
+.sidebar a:hover{
+    background-color: rgb(173, 178, 180);
+    color: #444;
+}
+
+
+.user-requests{
+    background-color: #113046;
+    color:#ccc;
+    padding: 30px 40px;
+    margin:15px 100px; 
+    border-radius: 10px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.para{
+    color: #222;
+}
+.single-request{
+background-color: #ddd;
+color: #222;
+margin: 20px;
+padding: 17px;
+width: 80%;
+}
+
+#make-request{
+    margin-left:5px 100px 6px 299px;
+}
+/* end of user dashboard page styles */
