@@ -125,6 +125,7 @@ nav p a{
     line-height: 55px;
     float:left;
      padding: 0 21px;
+     position: fixed;
 }
 
 nav ul{
