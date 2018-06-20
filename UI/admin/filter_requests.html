@@ -32,18 +32,29 @@
             </li>
         </ul>
     </nav>
+    <br>
 
-    <div>
-        <input type="submit" value="Filter Requests">
-    </div>
-    <form>
-        <div>
-            <input type="text" name="search" placeholder="search">
-        </div>
-    </form>
-        <div class="filter-requests">
-        <h3><strong>Filter by;</strong><br> category or type</h3>
+
+    <div class="filter-requests">
+        <h3>
+            <strong>Filter by;</strong>
+            <br> category or type</h3>
+        <br>
+        <hr>
+        <br>
         <form>
+            <div>
+                <label>Request type</label>
+                <select>
+                    <option> Filter by request type....</option>
+                    <option>Maintenance Requests</option>
+                    <option>Repair Requests</option>
+                </select>
+            </div>
+            <br>
+            <hr>
+            <br>
+
             <div>
                 <label>Request Category: </label>
                 <select>
@@ -53,14 +64,14 @@
                     <option value="rejected">Disapproved/Rejected Requests</option>
                 </select>
             </div>
+            <br>
+            <hr>
+            <br>
+
             <div>
-                <label>Request type</label>
-                <select>
-                    <option> Filter by request type....</option>
-                    <option>Maintenance Requests</option>
-                    <option>Repair Requests</option>
-                </select>
+                <input type="submit" value="Filter Requests" class="filter-submit">
             </div>
+
         </form>
     </div>
 
