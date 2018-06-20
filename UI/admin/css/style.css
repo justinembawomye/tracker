@@ -155,7 +155,6 @@ input[type=submit]{
 
 /* Admin dashboard page styles */
 
-
 .sidebar{
         height: auto;
         background-color:#113046;
@@ -277,7 +276,7 @@ footer{
     margin:250px 0 0 0;
     background-color:#55575d;
     color:#333;
-    padding: 40px;
+    padding: 15px;
 }
 /* End of admin dashboard styles */
 
@@ -308,3 +307,4 @@ footer{
 
 
 /* end of requests page styles */
+
