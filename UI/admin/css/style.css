@@ -318,5 +318,13 @@ footer{
 .filter-submit{
     width: 20%;
 }
+.r-filter{
+    background-color: #113046;
+    color: #ccc;
+    padding: 30px;
+    margin: 5% 10%;
+    border-radius: 10px;
+
+}
 
 /* end of filter requests page styles */
