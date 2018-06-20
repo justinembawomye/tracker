@@ -308,10 +308,15 @@ footer{
 
 /* end of requests page styles */
 
-/* filter requests page */
+/* filter requests page styles */
 .filter-requests{
     margin-left: 20%;
     margin-right: 20%;
+    margin-top: 10%;
+}
+
+.filter-submit{
+    width: 20%;
 }
 
 /* end of filter requests page styles */
