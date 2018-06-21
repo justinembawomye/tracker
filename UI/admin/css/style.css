@@ -211,7 +211,7 @@ input[type=submit]{
    margin:4%;
    
 }
-/* end of filter button styles */
+
 
 
 /* request button styles */
@@ -308,3 +308,23 @@ footer{
 
 /* end of requests page styles */
 
+/* filter requests page styles */
+.filter-requests{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 10%;
+}
+
+.filter-submit{
+    width: 20%;
+}
+.r-filter{
+    background-color: #113046;
+    color: #ccc;
+    padding: 30px;
+    margin: 5% 10%;
+    border-radius: 10px;
+
+}
+
+/* end of filter requests page styles */
