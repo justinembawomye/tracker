@@ -130,7 +130,9 @@ div .admin-user{
 }
 .login-heading{
     color: #444;
-    margin: 10px 35px;
+    margin: 3px;
+    font-size:31px;
+    
 }
 .login-content{
     margin: 150px 400px auto;
