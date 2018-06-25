@@ -10,7 +10,7 @@ body{
     font-family:"Arial", Serif;
     background-color: #f4f4f4;
     opacity: 0.9;
-    overflow: hidden;
+    overflow-x: hidden;
     display: block;
     margin-left: auto;
     margin-right: auto;
