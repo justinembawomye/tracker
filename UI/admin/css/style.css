@@ -18,12 +18,16 @@ body{
     width: 100%;
     padding: 0;
 }
+
+
 /* Navigation bar styles */
 nav{
     width: 100%;
     height: 60px;
     color: #fff;
     background-color:#113046;
+    position: fixed;
+
 }
 
 nav p a{
@@ -32,7 +36,8 @@ nav p a{
     font-size: 24px;
     line-height: 55px;
     float:left;
-     padding: 0 21px;
+    padding: 0 21px;
+   
 }
 
 nav ul{
@@ -85,17 +90,18 @@ nav ul li ul li a:hover{
 } 
 
 /* End of navigation styles */
-
-
 /* h1 styles */
-h1{
-    padding:25px;
-    color: #ddd;
+
+h2{
+    padding:30px 20px;
+    color: #333;
     text-align: center;
     font-weight: bold;
-    font-size: 60px;
-    width: 100%;
+    font-size: 40px;
+    width: 40%;
+ 
 }
+
 
 p{
     color: #fff;
@@ -124,7 +130,9 @@ div .admin-user{
 }
 .login-heading{
     color: #444;
-    margin: 10px 35px;
+    margin: 3px;
+    font-size:31px;
+    
 }
 .login-content{
     margin: 150px 400px auto;
@@ -146,63 +154,51 @@ input[type=submit]{
 
 /* Admin dashboard page styles */
 
+.sidebar{
+        height: auto;
+        background-color:#113046;
+        min-width: 15%;
+        max-width: 10%;
+        padding: 5px 5px;
+        align-items: stretch;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        position: fixed;
+        top: 65px;
+        overflow:hidden ;
+        bottom: 0;
+       
+    }
+    
+    .sidebar ul{
+        list-style: none;
+        display: flex;
+        flex-flow: column;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+    
+    .sidebar li {
+        height: 90%;
+        box-sizing: border-box;
+    }
+    
+    .sidebar a {
+        text-decoration: none;
+        color: white;
+        height: 100%;
+        padding: 10px;
+        display: block;  
+        font-size: 15px;
+    }
+    .sidebar a:hover{
+     
+       background-color: rgb(173, 178, 180);
+        color: #444;
+    }
 
-/* filter button styles */
-.filter-by{
-    margin-left: 0 auto;
-}
-
-#filter{
-    margin: 3px 200px;
-}
-.filter{
-    background-color: rgb(10, 68, 226);
-    color: white;
-    padding: 10px;
-    font-size: 14px;
-    border: none;
-    cursor: pointer;
-}
-
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-
-.filter-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(92, 91, 91, 0.2);
-    z-index: 1;
-}
-
-
-.filter-content a {
-    display: block;
-    color: #222;
-    padding: 8px 12px;    
-    text-decoration: none;
-   
-}
-
-
-.filter-content a:hover {
-    background-color: #ddd;
-}
-
-
-.fliter:hover .filter-content {
-    display: block;
-}
-
-
-.dropdown:hover .filter{
-    background-color: #618be4;
-}
 #view-requests{
     background-color: rgb(6, 95, 3);
     color: white;
@@ -214,7 +210,7 @@ input[type=submit]{
    margin:4%;
    
 }
-/* end of filter button styles */
+
 
 
 /* request button styles */
@@ -228,6 +224,8 @@ div #view-requests{
 table{
     width:80%;
     margin: 30px 100px 20px 150px;
+    margin-left: 20%;
+    margin-right: 10%;
 }
 
 table,  td{
@@ -245,7 +243,7 @@ td a{
 
 
 tr:nth-child(even){
-    background-color: #0d1520;
+    background-color: #113046;
 }
 
 
@@ -260,11 +258,24 @@ tr:nth-child(odd) a{
    
 }
 
+.number{
+    color: #ddd;
+}
 
 .admin{
-    float: right;
+    float: right !important;
     color: #ddd;
     padding: 10px;
+}
+
+label{
+    margin: 0 30px 0 0;
+    font-size: 20px;
+    line-height: 50px;
+    display: none;
+}
+#toggle{
+    display: none;
 }
 
 
@@ -277,8 +288,10 @@ footer{
     margin:250px 0 0 0;
     background-color:#55575d;
     color:#333;
-    padding: 40px;
+    padding: 15px;
 }
+
+
 /* End of admin dashboard styles */
 
 
@@ -299,12 +312,112 @@ footer{
 .btn-approve{
     width: 10%;
     background-color: green;
+    color:#eee;
+    font-size: 13px;
 }
 
 .btn-disapprove{
     width: 10%;
     background-color: rgb(131, 39, 39);
+    color:#eee;
+    font-size: 13px;
 }
 
 
 /* end of requests page styles */
+
+/* filter requests page styles */
+.filter-requests{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 10%;
+}
+
+.filter-submit{
+    width: 20%;
+}
+.r-filter{
+    background-color: #113046;
+    color: #ccc;
+    padding: 30px;
+    margin: 5% 10%;
+    border-radius: 10px;
+
+}
+
+/* end of filter requests page styles */
+
+
+/* Media queries */
+@media only screen and (max-width:800px){  
+    body{
+        font-size: 10px;
+        position: absolute;
+        width: 100%;
+        margin-top: 0;
+    }
+
+    
+    footer{
+        display: none;
+    }
+  
+    .sidebar{
+        position: relative;
+        flex-flow: row;
+        min-width: 70%;
+        height: auto;
+        box-sizing: border-box;
+    }
+  
+   
+    }
+    nav{
+        position: relative;
+    }
+    table{
+        width:100%;
+        margin: 30px 100px 20px 150px;
+        margin-left: 20%;
+        margin-right: 10%;
+    }
+
+
+@media screen and (max-width:640px){
+    body{
+        font-size: 7px;
+        position: absolute;
+        width: 120%;
+        margin-top: 0;
+        background-color: #113046;
+        color: #ddd;
+    }
+}
+
+@media only screen and (max-width:500px){
+    label{
+        display: block;
+        cursor: pointer;
+    }
+    nav{
+        width: 100%;
+        text-align: center;
+    }
+  
+    nav ul li{
+        display:block;
+    }
+    
+    nav p a{
+       display: block;
+       margin: 0;
+       border-bottom: midnightblue;
+    }
+
+    #toggle:checked + nav{
+        display: block;
+    }
+    
+ 
+   
+}
