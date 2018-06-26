@@ -222,7 +222,7 @@ div #view-requests{
 }
 
 table{
-    width:80%;
+    width:100%;
     margin: 30px 100px 20px 150px;
     margin-left: 20%;
     margin-right: 10%;
@@ -235,10 +235,10 @@ table,  td{
 } 
 
 th{
-    padding: 15px;
+    padding: 1%;
 } 
 td{
-    padding: 15px;
+    padding: 1%;
 } 
 
 td a{
@@ -248,6 +248,7 @@ td a{
 
 tr:nth-child(even){
     background-color: #113046;
+    color: #ddd;
 }
 
 
@@ -262,8 +263,21 @@ tr:nth-child(odd) a{
    
 }
 
+.r-table{
+    width:80%;
+    margin-right:5%; 
+    margin-left:15%; 
+  }
+
+  #r-table{
+    margin-left:0%; 
+  }
+
+ 
+
+
 .number{
-    color: #ddd;
+    color: #ddd !important;
 }
 
 .admin{
@@ -360,77 +374,3 @@ footer{
     }
 
 
-/* Media queries */
-@media only screen and (max-width:800px){  
-    body{
-        font-size: 10px;
-        position: absolute;
-        width: 100%;
-        margin-top: 0;
-    }
-
-    
-    footer{
-        display: none;
-    }
-  
-    .sidebar{
-        position: relative;
-        flex-flow: row;
-        min-width: 70%;
-        height: auto;
-        box-sizing: border-box;
-    }
-  
-   
-    }
-    nav{
-        position: relative;
-    }
-    table{
-        width:100%;
-        margin: 30px 100px 20px 150px;
-        margin-left: 20%;
-        margin-right: 10%;
-    }
-
-
-
-@media screen and (max-width:640px){
-    body{
-        font-size: 7px;
-        position: absolute;
-        width: 120%;
-        margin-top: 0;
-        background-color: #113046;
-        color: #ddd;
-    }
-}
-
-@media only screen and (max-width:500px){
-    label{
-        display: block;
-        cursor: pointer;
-    }
-    nav{
-        width: 100%;
-        text-align: center;
-    }
-  
-    nav ul li{
-        display:block;
-    }
-    
-    nav p a{
-       display: block;
-       margin: 0;
-       border-bottom: midnightblue;
-    }
-
-    #toggle:checked + nav{
-        display: block;
-    }
-    
- 
-   
-}

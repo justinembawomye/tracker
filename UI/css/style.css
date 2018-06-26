@@ -277,6 +277,14 @@ table,  td th{
   .r-table{
     margin-left:10%; 
   }
+
+  #r-table{
+    margin-right:20%; 
+  }
+
+  .table-user{
+      margin-left: 25%;
+  }
 /* end of requests page styles */
 
 
