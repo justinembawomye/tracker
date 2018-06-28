@@ -90,7 +90,14 @@ nav ul li ul li a:hover{
 } 
 
 /* End of navigation styles */
-/* h1 styles */
+h1{
+    padding:25px;
+    color: #ddd;
+    text-align: center;
+    font-weight: bold;
+    font-size: 60px;
+    width: 100%;
+}
 
 h2{
     padding:30px 20px;
@@ -102,6 +109,16 @@ h2{
  
 }
 
+
+#requests-heading{
+    padding:30px 20px; 
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+    /* width: 40%; */
+
+}
 
 p{
     color: #fff;
@@ -241,6 +258,12 @@ tr:nth-child(odd) a{
     margin-left:18%; 
   }
 
+.r-requests{
+    width:80%;
+    margin-left:10%; 
+    margin-left:10%; 
+    padding: 10% !important;  
+}  
 
  
 
