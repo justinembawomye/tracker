@@ -48,5 +48,11 @@ def create_request():
 
 
 
-
+@app.route('/api/v1/users/requests', methods=['GET'])
+def get_all_requests():
+    if len(requests) > 0:
+       return jsonify({"message": requests}),302
+    else:
+        return jsonify({"message":"There are no requests found"}),404 
+       
 
