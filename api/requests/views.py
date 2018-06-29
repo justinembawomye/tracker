@@ -56,3 +56,10 @@ def get_all_requests():
         return jsonify({"message":"There are no requests found"}),404 
        
 
+@app.route('/api/v1/users/requests/<int:request_id>', methods=['GET'])
+def get_single_request(request_id):
+    for single_request in requests:
+        if single_request.get('id') == request_id:
+            return jsonify({'request': single_request})
+    
+    return jsonify({'message':'That request is Not Found'}), 404
