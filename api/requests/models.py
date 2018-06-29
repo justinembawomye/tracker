@@ -1,13 +1,14 @@
+
 class Request:
     def __init__(self, request_id, client_name, email, category, request_title, description, department, request_time):
         self.request_id = request_id
         self.client_name = client_name
         self.email = email
         self.category = category
-        self.request_title = request_time
+        self.request_title = request_title
         self.description = description
         self.department = department
-        self.request_time = request_time
+        # self.request_time = datetime.datetime.now()
 
     def get_request_id(self):
         return self.request_id  
@@ -30,12 +31,11 @@ class Request:
     def get_department(self):
         return self.department
 
-    def get_request_time(self):
-        return self.request_time 
-
+    # def get_request_time(self):
+    #     return self.request_time 
 
 
     def __repr__(self):
-        pass    
+        return repr(self.__dict__) 
 
 requests = []        
