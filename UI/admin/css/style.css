@@ -157,13 +157,13 @@ input[type=submit]{
 .sidebar{
         height: auto;
         background-color:#113046;
-        min-width: 15%;
-        max-width: 10%;
-        padding: 5px 5px;
+        /* min-width: 15%;
+        max-width: 10%; */
+        padding: 5px;
         align-items: stretch;
         display: flex;
         flex-flow: column;
-        justify-content: space-between;
+        justify-content: space-between; 
         position: fixed;
         top: 65px;
         overflow:hidden ;
@@ -181,7 +181,7 @@ input[type=submit]{
     }
     
     .sidebar li {
-        height: 90%;
+        height: 80%;
         box-sizing: border-box;
     }
     
@@ -199,42 +199,19 @@ input[type=submit]{
         color: #444;
     }
 
-#view-requests{
-    background-color: rgb(6, 95, 3);
-    color: white;
-    border-radius: 5px;
-    padding: 13px;
-    font-size: 15px;
-    border: none;
-   float: right;
-   margin:4%;
-   
-}
-
-
-
-/* request button styles */
-div #view-requests{
-    margin: 50px 10px 10px 50px;
-    padding: 20px;
-    background-color: green;
-    color: #fff;
-}
-
 table{
-    width:80%;
-    margin: 30px 100px 20px 150px;
-    margin-left: 20%;
-    margin-right: 10%;
-}
-
-table,  td{
   border: 1px solid #ccc;
   border-collapse: collapse;
+  
 } 
 
-td{
-    padding: 15px;
+th, td{
+    padding:0.5%;
+} 
+
+th{
+    border: 1px solid #ccc;
+    font-size: 18px;
 } 
 
 td a{
@@ -244,6 +221,7 @@ td a{
 
 tr:nth-child(even){
     background-color: #113046;
+    color: #ddd;
 }
 
 
@@ -258,8 +236,17 @@ tr:nth-child(odd) a{
    
 }
 
+.r-table{
+    width:80%;
+    margin-left:18%; 
+  }
+
+
+ 
+
+
 .number{
-    color: #ddd;
+    color: #ddd !important;
 }
 
 .admin{
@@ -309,18 +296,17 @@ footer{
     border-radius: 10px;
 }
 
-.btn-approve{
-    width: 10%;
-    background-color: green;
+.btn-approve, .btn-disapprove{
+ padding: 10px;
+ margin: 5px;
+    background-color: rgb(7, 88, 7);
     color:#eee;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .btn-disapprove{
-    width: 10%;
     background-color: rgb(131, 39, 39);
-    color:#eee;
-    font-size: 13px;
+    
 }
 
 
@@ -348,76 +334,11 @@ footer{
 /* end of filter requests page styles */
 
 
-/* Media queries */
-@media only screen and (max-width:800px){  
-    body{
-        font-size: 10px;
-        position: absolute;
-        width: 100%;
-        margin-top: 0;
-    }
-
-    
-    footer{
-        display: none;
-    }
-  
-    .sidebar{
-        position: relative;
-        flex-flow: row;
-        min-width: 70%;
-        height: auto;
-        box-sizing: border-box;
-    }
-  
-   
-    }
-    nav{
-        position: relative;
-    }
-    table{
-        width:100%;
-        margin: 30px 100px 20px 150px;
-        margin-left: 20%;
-        margin-right: 10%;
-    }
-
-
-@media screen and (max-width:640px){
-    body{
-        font-size: 7px;
-        position: absolute;
-        width: 120%;
-        margin-top: 0;
-        background-color: #113046;
-        color: #ddd;
-    }
-}
-
-@media only screen and (max-width:500px){
-    label{
-        display: block;
-        cursor: pointer;
-    }
-    nav{
-        width: 100%;
-        text-align: center;
-    }
-  
-    nav ul li{
-        display:block;
-    }
-    
-    nav p a{
-       display: block;
-       margin: 0;
-       border-bottom: midnightblue;
-    }
-
-    #toggle:checked + nav{
-        display: block;
-    }
-    
+#float-right{
+    width: 95% !important;
+    margin: 10px 10px;
+    padding: 10px;
  
-   
-}
+    }
+
+

@@ -239,29 +239,52 @@ footer{
 
 
 /* requests page styles */
-.float-right{
-    float: right !important;
-}
+table,  td th{
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    
+  } 
+  
+  th{
+      padding: 15px;
+  } 
+  td{
+      padding: 15px;
+  } 
+  
+  td a{
+     color: #ddd;
+  } 
+  
+  
+  tr:nth-child(even){
+      background-color: #113046;
+      color: #ddd;
+  }
+  
+  
+  tr:nth-child(odd){
+      background-color: #ddd;
+      color: #0d1520;
+     
+  }
+  
+  tr:nth-child(odd) a{
+      color: #444;
+     
+  }
 
-.request-a{
-    background-color: #113046;
-    color:#ccc;
-    padding: 30px 40px;
-    margin:15px 100px; 
-    border-radius: 10px;
-}
+  .r-table{
+    margin-left:10%; 
+  }
 
-.btn-approve{
-    width: 10%;
-    color: #ccc;
-}
+  #r-table{
+    margin-right:20%; 
+  }
 
-.btn-disapprove{
-    width: 10%;
-    background-color: rgb(131, 39, 39);
-}
-
-
+  .table-user{
+      margin-left: 25%;
+  }
 /* end of requests page styles */
 
 
@@ -348,3 +371,4 @@ width: 80%;
     margin-left:5px 100px 6px 299px;
 }
 /* end of user dashboard page styles */
+
