@@ -3,22 +3,22 @@ from flask import Flask, request, jsonify
 from .models import Request, requests, User, users
 import datetime
 
+
 app = Flask(__name__)
 
 
 @app.route('/auth/register', methods=['POST'])
 def register_user():
-    # getting user data
     user_data = request.get_json()
-
-    if not user_data:
-        return jsonify({'message': 'All fields are required'}), 400
+    # getting user data
     name = user_data.get('name')
     email = user_data.get('email')
     username = str(user_data.get('username')).strip()
     password = user_data.get('password')
+    
+    if not user_data:
+        return jsonify({'message': 'All fields are required'}), 400
 
-    # validate user data
     if not name:
         return jsonify({'message': 'name is required'}), 400
 
@@ -27,7 +27,11 @@ def register_user():
 
     if not username:
         return jsonify({'message': 'username is required'}), 400 
+    if not password:
+        return jsonify({'message': 'password  is required'}), 400 
+  
 
+    
     user_data['id'] = len(users)
     # Add users
     users.append(user_data)
@@ -57,6 +61,7 @@ def get_user(user_id):
             return jsonify({'user': each_user})
     
     return jsonify({'error':'User Not Found'}), 404
+
 
 
 @app.route('/api/v1/users/requests', methods=['POST'])
@@ -93,7 +98,7 @@ def create_request():
         return jsonify({'message': 'datetime is required'}), 400 
 
                      
-
+    request_data['id'] = 0
     request_data['id'] = len(requests)
     requests.append(request_data)
 
@@ -117,7 +122,34 @@ def get_single_request(request_id):
     
     return jsonify({'message':'That request is Not Found'}), 404
 
-@app.route('/api/v1/users/requests/<int:request_id>', methods=['PUT'])
-def modify_request(request_id):
-    pass
+@app.route("/api/v1/users/requests/<int:requestId>",methods=['PUT'])
+def update_request(request_id):
+    """ Endpoint to edit a user requests """
+
+    #check if user has any requests
+    if len(requests) < 0:
+        return jsonify({
+            "message":"You have not made any requests yet"
+        })
     
+    #if user has more than one request
+    if len(requests) >= 1:
+        #get entered data
+        data = request.get_json()
+
+        #picking the request attributes
+        client_name = data.get("client_name")
+        email = data.get("email")
+
+        if len(requests) >= 1:
+            for single_request in requests:
+                if single_request.request_id == int(request_id):
+                   single_request.client_name = client_name
+                   single_request.email = email
+                   single_request.category = category
+                   single_request.request_title = request_title
+                   single_request.department = department
+                   single_request.description = description
+                   return jsonify({
+                        "message":"Successfully edited the request"
+                    })
