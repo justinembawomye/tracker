@@ -45,6 +45,8 @@ def login_user():
     username = str(user_data.get('username')).strip()
     password = user_data.get('password')
 
+    return jsonify({"message":"Welcome Tinah. You are logged in"})
+
 
 @app.route('/users')
 def get_all_users():
@@ -90,7 +92,7 @@ def create_request():
         return jsonify({'message': 'Description is required'}), 400 
 
     if not department:
-        return jsonify({'message': 'datetime is required'}), 400 
+        return jsonify({'message': 'department is required'}), 400 
 
                      
 
