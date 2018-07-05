@@ -1,4 +1,3 @@
-
 from flask import Flask, request, jsonify
 from .models import Request, requests, User, users
 import datetime
@@ -47,6 +46,8 @@ def login_user():
     username = str(user_data.get('username')).strip()
     password = user_data.get('password')
 
+    return jsonify({"message":"Welcome Tinah. You are logged in"})
+
 
 @app.route('/users')
 def get_all_users():
@@ -91,8 +92,13 @@ def create_request():
             'status': 'Required',
             'message': 'request title field is missing'}), 400
 
+<<<<<<< HEAD
     if not description or description == " " or len(description < 10):
         return jsonify({'message': 'Description is required'}), 400
+=======
+    if not department:
+        return jsonify({'message': 'department is required'}), 400 
+>>>>>>> challenge2
 
     if not department or department == " ":
         return jsonify({
