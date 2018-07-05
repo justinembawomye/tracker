@@ -91,6 +91,7 @@ def create_request():
         return jsonify({
             'status': 'Required',
             'message': 'request title field is missing'}), 400
+<<<<<<< HEAD
 
 <<<<<<< HEAD
     if not description or description == " " or len(description < 10):
@@ -99,6 +100,12 @@ def create_request():
     if not department:
         return jsonify({'message': 'department is required'}), 400 
 >>>>>>> challenge2
+=======
+ ft-oop
+    if not description or description == " " or len(description < 10):
+        return jsonify({'message': 'Description is required'}), 400
+
+>>>>>>> 365068b68899e62ac96c8024d8847bb8751ab5a5
 
     if not department or department == " ":
         return jsonify({
