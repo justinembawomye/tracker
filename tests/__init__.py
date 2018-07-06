@@ -1,7 +1,5 @@
-import unittest
-
-
 from api.views import app
+import unittest
 
 class BaseTestCase(unittest.TestCase):
 
