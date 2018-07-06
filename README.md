@@ -1,5 +1,5 @@
 # maintenance-tracker-api  
-## [![Build Status](https://travis-ci.org/justinembawomye/tracker.svg?branch=master)](https://travis-ci.org/justinembawomye/tracker)   
+## [![Build Status](https://travis-ci.org/justinembawomye/tracker.svg?branch=challenge2)](https://travis-ci.org/justinembawomye/tracker)  
 This API  allows users to create, create accounts, login and make maintenance or repair requests to operations/repairs department and monitor the status of their respective requests
 
 ##  Required Features(Endpoints)
