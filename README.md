@@ -1,5 +1,7 @@
 # maintenance-tracker-api  
 ## [![Build Status](https://travis-ci.org/justinembawomye/tracker.svg?branch=challenge2)](https://travis-ci.org/justinembawomye/tracker)  
+
+## [![Coverage Status](https://coveralls.io/repos/github/justinembawomye/tracker/badge.svg)](https://coveralls.io/github/justinembawomye/tracker)
 This API  allows users to create, create accounts, login and make maintenance or repair requests to operations/repairs department and monitor the status of their respective requests
 
 ##  Required Features(Endpoints)
