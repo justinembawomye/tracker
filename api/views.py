@@ -26,6 +26,7 @@ def register_user():
 
     if not username or username == " " or username == type(int):
         return jsonify({'message': 'Invalid username'}), 400
+      
     if not password or password == " " or len(password) < 5:
         return jsonify({'message': 'A stronger password  is required'}), 400
 
@@ -47,20 +48,6 @@ def login_user():
     password = user_data.get('password')
 
     return jsonify({"message": "Welcome Tinah. You are logged in"})
-
-
-@app.route('/users')
-def get_all_users():
-    return jsonify({'users': users}), 200
-
-
-@app.route('/users/<int:user_id>')
-def get_user(user_id):
-    for each_user in users:
-        if each_user.get('id') == user_id:
-            return jsonify({'user': each_user})
-
-    return jsonify({'error': 'User Not Found'}), 404
 
 
 @app.route('/api/v1/users/requests', methods=['POST'])
@@ -105,8 +92,7 @@ def create_request():
     requests.append(request_data)
 
     return jsonify({'message': f'Hey {client_name}! You have successfully created a request'}), 201
-
-
+   
 @app.route('/api/v1/users/requests', methods=['GET'])
 def get_all_requests():
     if len(requests) > 0:
