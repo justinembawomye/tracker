@@ -1,6 +1,6 @@
 # maintenance-tracker-api  
 ## [![Build Status](https://travis-ci.org/justinembawomye/tracker.svg?branch=challenge2)](https://travis-ci.org/justinembawomye/tracker)  [![Coverage Status](https://coveralls.io/repos/github/justinembawomye/tracker/badge.svg?branch=challenge2)](https://coveralls.io/github/justinembawomye/tracker?branch=challenge2)  [![Maintainability](https://api.codeclimate.com/v1/badges/94d5d010d5645258eb7c/maintainability)](https://codeclimate.com/github/justinembawomye/tracker/maintainability)  [![Test Coverage](https://api.codeclimate.com/v1/badges/94d5d010d5645258eb7c/test_coverage)](https://codeclimate.com/github/justinembawomye/tracker/test_coverage)
-
+## [![Build Status](https://travis-ci.org/justinembawomye/tracker.svg?branch=challenge2)](https://travis-ci.org/justinembawomye/tracker)  [![Coverage Status](https://coveralls.io/repos/github/justinembawomye/tracker/badge.svg?branch=challenge2)](https://coveralls.io/github/justinembawomye/tracker?branch=challenge2)  
  
 This API  allows users to create, create accounts, login and make maintenance or repair requests to operations/repairs department and monitor the status of their respective requests
 
