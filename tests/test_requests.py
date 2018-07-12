@@ -28,12 +28,6 @@ class RequestTestCase(BaseTestCase):
         """Tests user can\'t send request with missing details"""
         response = self.test_client.post('/api/v1/users/requests', data=json.dumps({"client_name":"kiz", "email":"deekiz@gmail.com", "category":"repair", "request_title":"please repair my pc",  "description":"Hey! could you please repair my pc by noon", "department":""}))    
         self.assertEqual(response.status_code, 400)
-                
-    # def test_request_with_no_credentials(self):
-    #     """Tests user can\'t send an empty request"""
-    #     response = self.test_client.post('/api/v1/users/requests', data=json.dumps({""})    
-    #     self.assertEqual(response.status_code, 400)  
-
 
 
 
