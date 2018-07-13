@@ -24,10 +24,13 @@ PUT /api/v1/users/requests/`<requestId>`/ | Modify a request.
 ##  Requirements
 * Setup a virtual environment
 * `pip install -r requirements.txt`
+<<<<<<< HEAD
+=======
 #### Alt
 * Install Python preferably version 3 and above
 * pip install Flask
 * pip install nose
+>>>>>>> 8dee14e76f26079f0caf7fa95aa54975ff30355d
 
 
 ##  Run the app
