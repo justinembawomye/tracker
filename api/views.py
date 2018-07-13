@@ -56,6 +56,9 @@ def login_user():
     return jsonify({"message": f"Welcome {username}. You are logged in"}),200
 
 
+    return jsonify({"message": f"Welcome {username}. You are logged in"}),200
+
+
 
 @app.route("/api/v1/users/requests", methods=["POST"])
 def create_request():
@@ -138,6 +141,8 @@ def update_request(request_id):
             request_title = new_request_data.get('request_title')
             description = new_request_data.get('description')
             department = new_request_data.get('department')
+
         return jsonify({"message": "Request updated successfully"}), 200
 
     return jsonify({"message": "Failed to update request"}), 400
+

@@ -25,7 +25,6 @@ PUT /api/v1/users/requests/`<requestId>`/ | Modify a request.
 * Setup a virtual environment
 * `pip install -r requirements.txt`
 
-
 ##  Run the app
 Run python app.py on command prompt
 * View the api on http://127.0.0.1:5000/auth/register
