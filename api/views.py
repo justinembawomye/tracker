@@ -93,15 +93,31 @@ def create_request():
 
     return jsonify({'message': f'Hey {client_name}! You have successfully created a request'}), 201
    
-@app.route('/api/v1/users/requests', methods=['GET'])
-def get_all_requests():
-    if len(requests) > 0:
-        return jsonify({"message": requests}), 302
-    else:
-        return jsonify({
-            "status": "Fail",
-            "message": "There are no requests found on the system"}), 404
+# @app.route('/api/v1/users/requests', methods=['GET'])
+# def get_all_requests():
+#     if len(requests) > 0:
+#         return jsonify({"message": requests}), 302
+#     else:
+#         return jsonify({
+#             "status": "Fail",
+#             "message": "There are no requests found on the system"}), 404
 
+
+
+@app.route("/api/v1/users/requests", methods=["GET"])
+def fetch_requests():
+    """  fetches all requests on the application """
+    if len(requests) < 1:
+        return jsonify({
+            "message":"You have no requests"
+        })
+    
+    #if user has more than one request
+    if len(requests) >= 1:
+        return jsonify({
+            "message":requests
+        }),302
+    return jsonify({"message":"Can\'t fetch requests "}),400
 
 @app.route('/api/v1/users/requests/<int:request_id>', methods=['GET'])
 def get_single_request(request_id):
