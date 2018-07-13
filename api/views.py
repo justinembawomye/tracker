@@ -43,13 +43,14 @@ def register_user():
 def login_user():
     # getting user data
     user_data = request.get_json()
-
-    if not user_data:
-        return jsonify({'Missing': 'These fields are required'}), 400
     username = str(user_data.get('username')).strip()
     password = user_data.get('password')
 
-    return jsonify({"message": f"Welcome {username}. You are logged in"})
+    if not user_data:
+        return jsonify({'Missing': 'These fields are required'}), 400
+
+
+    return jsonify({"message": f"Welcome {username}. You are logged in"}),200
 
 
 
@@ -102,16 +103,18 @@ def create_request():
 
 
 
-   
-@app.route('/api/v1/users/requests', methods=['GET'])
-def get_all_requests():
-    if len(requests) > 0:
-        return jsonify({"message": requests}), 302
-    else:
+@app.route("/api/v1/users/requests", methods=["GET"])
+def fetch_requests():
+    if len(requests) < 1:
         return jsonify({
-            "status": "Fail",
-            "message": "There are no requests found on the system"}), 404
-
+            "message":"You have no requests"
+        }), 400
+    
+    if len(requests) >= 1:
+        return jsonify({
+            "message":requests
+        }),302
+    return jsonify({"message":"Can\'t fetch requests "}),400
 
 @app.route('/api/v1/users/requests/<int:request_id>', methods=['GET'])
 def get_single_request(request_id):
@@ -139,5 +142,7 @@ def update_request(request_id):
             description = new_request_data.get('description')
             department = new_request_data.get('department')
         return jsonify({"message":"Request updated successfully"}),200 
+
     return jsonify({"message":"Failed to update request"}),400
+
             

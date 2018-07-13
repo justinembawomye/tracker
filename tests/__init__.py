@@ -13,6 +13,10 @@ class BaseTestCase(unittest.TestCase):
             "password":"123456"
            
         }
+        self.user_login_data={
+            "username":"Tinah",
+            "password":"123456"
+        }
         self.request_data = {
             "request_id":1,
             "client_name":"kiz",

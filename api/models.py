@@ -1,5 +1,6 @@
 
 class Request:
+
     def __init__(self, client_name, email, category, request_title, description, department,  request_id):
         self.client_name = client_name
         self.email = email
@@ -7,8 +8,8 @@ class Request:
         self.request_title = request_title
         self.description = description
         self.department = department
+
         self.request_id = request_id
-        
         
 
     def __repr__(self):
