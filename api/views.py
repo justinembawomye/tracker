@@ -1,7 +1,6 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, make_response
 from .models import Request, requests, User, users
-import datetime
-
+import re
 
 app = Flask(__name__)
 
@@ -21,8 +20,11 @@ def register_user():
     if not name or name == " " or name == type(int) or len(name) < 3:
         return jsonify({'message': 'Invalid name'}), 400
 
-    if not email or email == " ":
-        return jsonify({'message': 'Email address is missing'}), 400
+    
+    if not re.match(r"([\w\.-]+)@([\w\.-]+)(\.[\w\.]+$)", email):
+        return make_response(jsonify({
+            "status":"Fail",
+            "message": "Enter valid email"}), 400)
 
     if not username or username == " " or username == type(int):
         return jsonify({'message': 'Invalid username'}), 400
@@ -47,36 +49,37 @@ def login_user():
     if not user_data:
         return jsonify({'Missing': 'These fields are required'}), 400
 
-    if not username or username ==" ":
-        return jsonify({'Missing': 'username is required'}), 400
-        
-    if not password or password ==" ":
-        return jsonify({'Missing': 'password  is required'}), 400    
-    return jsonify({"message": f"Welcome {username}. You are logged in"})
+
+    return jsonify({"message": f"Welcome {username}. You are logged in"}),200
 
 
-@app.route('/api/v1/users/requests', methods=['POST'])
+
+@app.route("/api/v1/users/requests", methods=["POST"])
 def create_request():
-    # getting request data
+    """ Endpoint to get the request data entered by the user """
+    #get request data
     request_data = request.get_json()
 
-    if not request_data:
-        return jsonify({'message': 'All fields are required'}), 400
-    client_name = request_data.get('client_name')
-    email = request_data.get('email')
-    category = request_data.get('category')
-    request_title = request_data.get('request_title')
-    description = request_data.get('description')
-    department = request_data.get('department')
-    # request_time = datetime.datetime.now()
+   
+    client_name = request_data.get("client_name")
+    email = request_data.get("email")
+    category  = request_data.get("category")
+    request_title = request_data.get("request_title")
+    description = request_data.get("description")
+    department = request_data.get("department")
+    request_id = len(requests) + 1
+    
 
-    # validate request data
+ # validate request data
+    
     if not client_name or client_name == " " or client_name == type(int):
-        return jsonify({'message': 'client name is required'}), 400
+        return jsonify({'message': 'client name is required'}), 400   
 
-    if not email or email == " ":
-        return jsonify({'message': 'Email address is required'}), 400
-
+       
+    if not re.match(r"([\w\.-]+)@([\w\.-]+)(\.[\w\.]+$)", email):
+        return make_response(jsonify({
+            "status":"Fail",
+            "message": "Enter valid email"}), 400)
     if not category or category == " ":
         return jsonify({'message': 'category is required'}), 400
     if not request_title or request_title == "":
@@ -85,39 +88,28 @@ def create_request():
             'message': 'request title field is missing'}), 400
 
     if not description or description == " ":
-        return jsonify({'message': 'Description is required'}), 400
+        return jsonify({'message': 'Description is missing'}), 400
 
     if not department or department == " ":
         return jsonify({
             'status': 'Fail',
             'message': 'department field  is missing'}), 400
 
-    request_data['id'] = 0
-    request_data['id'] = len(requests)
-    requests.append(request_data)
+    new_request = Request(client_name, email, category, request_title, description, department, request_id)
+    requests.append(new_request)
+
 
     return jsonify({'message': f'Hey {client_name}! You have successfully created a request'}), 201
-   
-# @app.route('/api/v1/users/requests', methods=['GET'])
-# def get_all_requests():
-#     if len(requests) > 0:
-#         return jsonify({"message": requests}), 302
-#     else:
-#         return jsonify({
-#             "status": "Fail",
-#             "message": "There are no requests found on the system"}), 404
 
 
 
 @app.route("/api/v1/users/requests", methods=["GET"])
 def fetch_requests():
-    """  fetches all requests on the application """
     if len(requests) < 1:
         return jsonify({
             "message":"You have no requests"
-        })
+        }), 400
     
-    #if user has more than one request
     if len(requests) >= 1:
         return jsonify({
             "message":requests
@@ -150,5 +142,7 @@ def update_request(request_id):
             description = new_request_data.get('description')
             department = new_request_data.get('department')
         return jsonify({"message":"Request updated successfully"}),200 
-    return jsonify({"message":"Failed to update request"})
+
+    return jsonify({"message":"Failed to update request"}),400
+
             
