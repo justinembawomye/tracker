@@ -49,6 +49,12 @@ def login_user():
     if not user_data:
         return jsonify({'Missing': 'These fields are required'}), 400
 
+    if not username or username ==" ":
+        return jsonify({'Missing': 'username is required'}), 400
+        
+    if not password or password ==" ":
+        return jsonify({'Missing': 'password  is required'}), 400    
+    return jsonify({"message": f"Welcome {username}. You are logged in"})
 
     return jsonify({"message": f"Welcome {username}. You are logged in"}),200
 
@@ -143,6 +149,6 @@ def update_request(request_id):
             department = new_request_data.get('department')
         return jsonify({"message":"Request updated successfully"}),200 
 
+
     return jsonify({"message":"Failed to update request"}),400
 
-            
