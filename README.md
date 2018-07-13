@@ -1,7 +1,7 @@
 # maintenance-tracker-api  
 ## [![Build Status](https://travis-ci.org/justinembawomye/tracker.svg?branch=challenge2)](https://travis-ci.org/justinembawomye/tracker)  [![Coverage Status](https://coveralls.io/repos/github/justinembawomye/tracker/badge.svg?branch=challenge2)](https://coveralls.io/github/justinembawomye/tracker?branch=challenge2)  [![Maintainability](https://api.codeclimate.com/v1/badges/94d5d010d5645258eb7c/maintainability)](https://codeclimate.com/github/justinembawomye/tracker/maintainability)
 
-This API  allows users to create, create accounts, login and make maintenance or repair requests to operations/repairs department and monitor the status of their respective requests
+This API  allows users to create accounts, login and make maintenance or repair requests to operations/repairs department and monitor the status of their respective requests
 
 ##  Required Features(Endpoints)
        
@@ -20,13 +20,15 @@ PUT /api/v1/users/requests/`<requestId>`/ | Modify a request.
 
 ##  Technologies
 * Python 3.6
-* Flask Restful
 
 ##  Requirements
 * Setup a virtual environment
+* `pip install -r requirements.txt`
+#### Alt
 * Install Python preferably version 3 and above
 * pip install Flask
-* pip install pytest
+* pip install nose
+
 
 ##  Run the app
 Run python app.py on command prompt
