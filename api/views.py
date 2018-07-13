@@ -139,5 +139,5 @@ def update_request(request_id):
             description = new_request_data.get('description')
             department = new_request_data.get('department')
         return jsonify({"message":"Request updated successfully"}),200 
-    return jsonify({"message":f"Failed to update request"})
+    return jsonify({"message":"Failed to update request"}),400
             
