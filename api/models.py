@@ -1,6 +1,5 @@
 
 class Request:
-    users = []
     def __init__(self, request_id, client_name, email, category, request_title, description, department, request_time):
         self.request_id = request_id
         self.client_name = client_name
@@ -9,7 +8,6 @@ class Request:
         self.request_title = request_title
         self.description = description
         self.department = department
-        # self.request_time = datetime.datetime.now()
 
     def get_request_id(self):
         return self.request_id  
@@ -32,10 +30,7 @@ class Request:
     def get_department(self):
         return self.department
 
-    # def get_request_time(self):
-    #     return self.request_time 
-
-    # def add_request(self,request_id, )
+ 
 
     def update_request(self,request_id, client_name, email, category, request_title, department,  description):
         request_id = int(request_id) 

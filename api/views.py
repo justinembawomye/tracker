@@ -41,13 +41,18 @@ def register_user():
 def login_user():
     # getting user data
     user_data = request.get_json()
-
-    if not user_data:
-        return jsonify({'Missing': 'These fields are required'}), 400
     username = str(user_data.get('username')).strip()
     password = user_data.get('password')
 
-    return jsonify({"message": "Welcome Tinah. You are logged in"})
+    if not user_data:
+        return jsonify({'Missing': 'These fields are required'}), 400
+
+    if not username or username ==" ":
+        return jsonify({'Missing': 'username is required'}), 400
+        
+    if not password or password ==" ":
+        return jsonify({'Missing': 'password  is required'}), 400    
+    return jsonify({"message": f"Welcome {username}. You are logged in"})
 
 
 @app.route('/api/v1/users/requests', methods=['POST'])
@@ -145,5 +150,5 @@ def update_request(request_id):
             description = new_request_data.get('description')
             department = new_request_data.get('department')
         return jsonify({"message":"Request updated successfully"}),200 
-    return jsonify({"message":f"Failed to update request"})
+    return jsonify({"message":"Failed to update request"})
             
