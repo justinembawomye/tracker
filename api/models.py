@@ -8,6 +8,7 @@ class Request:
         self.request_title = request_title
         self.description = description
         self.department = department
+       
 
 
     def __repr__(self):
