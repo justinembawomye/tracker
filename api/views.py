@@ -63,6 +63,7 @@ def create_request():
     """ Endpoint to get the request data entered by the user """
     # get request data
     request_data = request.get_json()
+
     client_name = request_data.get("client_name")
     email = request_data.get("email")
     category = request_data.get("category")
@@ -72,7 +73,6 @@ def create_request():
     request_id = len(requests) + 1
 
  # validate request data
-
     if not client_name or client_name == " " or client_name == type(int):
         return jsonify({'message': 'client name is required'}), 400
 
@@ -115,7 +115,7 @@ def fetch_requests():
             "requests":[
                 my_request.__dict__ for my_request in requests
             ]
-        }),200
+        }),302
     return jsonify({"Sorry":"Couldn\'t fetch any requests"}),400
 
 
