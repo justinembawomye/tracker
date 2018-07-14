@@ -29,7 +29,7 @@ class RequestTestCase(BaseTestCase):
 
         response = self.test_client.post('/api/v1/users/requests', data=json.dumps(self.request_data), content_type = 'application/json')
         response = self.test_client.get('/api/v1/users/requests', data=json.dumps(self.request_data), content_type = 'application/json')
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 200)
           
     def test_get_single_request(self):
         """ Tests  whether a single request can be returned by id successfully """

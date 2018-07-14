@@ -115,7 +115,7 @@ def fetch_requests():
             "requests":[
                 my_request.__dict__ for my_request in requests
             ]
-        }),302
+        }),200
     return jsonify({"Sorry":"Couldn\'t fetch any requests"}),400
 
 
