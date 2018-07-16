@@ -5,21 +5,28 @@ This API  allows users to create accounts, login and make maintenance or repair 
 
 ##  Required Features(Endpoints)
        
-Endpoint | Functionality
--------- | -------------
+Endpoint | Functionality | Access
+-------- | ------------- | ------
 POST/auth/register | Register a user
 POST/auth/login | login a user
 GET /api/v1/users/requests | Fetch all the requests of a logged in user
 GET /api/v1/users/requests/`<requestId>` | Fetch a request that belongs to a logged in user
 POST /api/v1/users/requests/ | Create a request
-PUT /api/v1/users/requests/`<requestId>`/ | Modify a request.
+PUT /api/v2/users/requests/`<requestId>`/ | Modify a request | Before being approved by Admin
+GET/api/v2/requests/ | Fetch all the requests | Admin
+PUT /api/v2/requests/<requestId>approve | Approve a request | Admin 
+PUT/api/v2requests/<requestId>disapprove | Disapprove request | Admin
+PUT api/v2/requests/<requestId>resolve | Resolve request | Admin
+
 
 ##  Prerequisites
 * Python/Flask framework
+* PostgreSQL
 
 
 ##  Technologies
 * Python 3.6
+* pyscopg2
 
 ##  Requirements
 * Setup a virtual environment
@@ -33,5 +40,5 @@ Run python app.py on command prompt
 ## Import unittest library in the test file
 * import Unittest
 * write tests
-* Run pytest on command prompt to see failing tests and after refactor to make the tests run
+* Run nosetests on command prompt to see failing tests and after refactor to make the tests run
 
