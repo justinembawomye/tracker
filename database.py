@@ -18,11 +18,12 @@ class DatabaseConnection:
     def create_table_requests(self):
         create_requests_table = "CREATE TABLE IF NOT EXISTS requests(id SERIAL PRIMARY KEY, client_name VARCHAR(100) NOT NULL, email VARCHAR(100) NOT NULL, category VARCHAR(100) NOT NULL, request_title VARCHAR(100) NOT NULL, description VARCHAR(250) NOT NULL, department VARCHAR(100) NOT NULL, status VARCHAR(100) NOT NULL, create_date TIMESTAMP DEFAULT  CURRENT_TIMESTAMP)"
         self.cursor.execute(create_requests_table)
+        
 
     def close(self):
         self.cursor.close()
-
-
+     
+  
 
 if __name__ == "__main__":
     database_connection = DatabaseConnection()
