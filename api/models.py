@@ -1,4 +1,6 @@
 from database import DatabaseConnection
+# import uuid
+# from werkzeug.security import check_password_hash, generate_password_hash
 
 db_connect = DatabaseConnection()
 connect = db_connect.connection
@@ -31,5 +33,4 @@ class User(DatabaseConnection):
 
     def add_user(self):
         cursor.execute("INSERT INTO users VALUES('{}', '{}','{}','{}','{}')".format(self.name, self.email, self.username, self.password, self.is_admin))
-        connect.commit()
         cursor.close()

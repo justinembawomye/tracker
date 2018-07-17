@@ -10,10 +10,9 @@ app = Flask(__name__)
 def register_user():
 
     user_data = request.get_json()
-    # getting user data
     name = user_data.get('name')
     email = user_data.get('email')
-    username = str(user_data.get('username')).strip()
+    username = user_data.get('username')
     password = user_data.get('password')
     is_admin = user_data.get('is_admin')
 
@@ -22,7 +21,7 @@ def register_user():
     if not user_data:
         return jsonify({'message': 'All fields are required'}), 400
 
-    if not name or name == " " or name == type(int) or len(name) < 3:
+    if not name or name == " ":
         return jsonify({'message': 'Invalid name'}), 400
 
     if not re.match(r"([\w\.-]+)@([\w\.-]+)(\.[\w\.]+$)", email):
@@ -38,7 +37,8 @@ def register_user():
 
     new_user = User(name, email, username, password, is_admin)
     new_user.add_user()
+    
 
-    return jsonify({"message": "User  successfully created an account"}), 201
+    return jsonify({"message": f"User {name} successfully created an account"}), 201
 
 
