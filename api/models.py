@@ -1,3 +1,11 @@
+from database import DatabaseConnection
+# import uuid
+# from werkzeug.security import check_password_hash, generate_password_hash
+
+db_connect = DatabaseConnection()
+connect = db_connect.connection
+cursor = db_connect.connection.cursor()
+
 
 class Request:
     def __init__(self, client_name, email, category, request_title, description, department,  request_id):
@@ -8,22 +16,24 @@ class Request:
         self.request_title = request_title
         self.description = description
         self.department = department
-       
-
 
     def __repr__(self):
-        return repr(self.__dict__) 
-
-requests = []        
+        return repr(self.__dict__)
 
 
-class User:
-    
-    def __init__(self, user_id, name, email, username, password):
-        self.user_id = 0
+requests = []
+
+
+class User(DatabaseConnection):
+
+    def __init__(self, name, email, username, password, is_admin=False):
         self.name = name
         self.email = email
         self.username = username
         self.password = password
+        self.is_admin = is_admin
 
-users = []
+    def add_user(self):
+        cursor.execute("INSERT INTO users(name, email, username, password, is_admin) VALUES('{}', '{}','{}','{}','{}')".format(
+        self.name, self.email, self.username, self.password, self.is_admin))
+        cursor.close()
