@@ -74,6 +74,29 @@ def register_user():
 
 @app.route('/auth/login', methods=['POST'])
 def login_user():
-    user_data = request.get_json()
-    # current_user = User(user_data['username'],user_data['password'])
+    connect = DatabaseConnection()
+    cursor = connect.cursor
+    login_data = request.get_json()
+    username = login_data['username']
+    password = generate_password_hash(login_data['password'])
+  
+    cursor.execute(
+        "SELECT * FROM users WHERE username = '{}'".format(login_data['username']))
+    user = cursor.fetchone()
+
+    if user:
+
+        user_object = User(user[1], user[2], user[3], user[4])
+
+        user_token = user_object.get_token()
+        return jsonify({
+            'status': 'OK',
+            'message': f'Welcome {username} You are logged in',
+            'access_token': user_token.decode('utf8')
+            }), 200
+    else:
+        return jsonify({
+            'message': f'user {username} not found'
+        }), 404
+
    
