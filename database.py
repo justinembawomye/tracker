@@ -11,7 +11,7 @@ class DatabaseConnection:
             print("Failed to connect to the database")
 
     def create_table_users(self):
-        create_database_table = " CREATE TABLE IF NOT EXISTS users(id SERIAL PRIMARY KEY, name  VARCHAR(100) NOT NULL, email VARCHAR(100) NOT NULL, username VARCHAR(50) NOT NULL, password VARCHAR(100) NOT NULL, create_date TIMESTAMP DEFAULT  CURRENT_TIMESTAMP, is_admin BOOLEAN)"
+        create_database_table = " CREATE TABLE IF NOT EXISTS users(id SERIAL PRIMARY KEY, name  VARCHAR(100) NOT NULL, email VARCHAR(100) NOT NULL UNIQUE, username VARCHAR(50) NOT NULL UNIQUE, password VARCHAR(100) NOT NULL, create_date TIMESTAMP DEFAULT  CURRENT_TIMESTAMP, is_admin BOOLEAN)"
         self.cursor.execute(create_database_table)
 
     def create_table_requests(self):
