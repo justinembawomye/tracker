@@ -142,8 +142,7 @@ def update_request(request_id):
         return jsonify({
             "status":"Fail",
             "Sorry":"You have no requests to modify"}), 404
-    
-    if len(requests) >= 1:
+            
         request_data = request.get_json()
         client_name =  request_data.get("client_name")
         email =  request_data.get("email")
