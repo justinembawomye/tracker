@@ -1,13 +1,20 @@
 
 class Request:
+<<<<<<< HEAD
+
+    def __init__(self, client_name, email, category, request_title, description, department,  request_id):
+=======
     def __init__(self, request_id, client_name, email, category, request_title, description, department, request_time):
         self.request_id = request_id
+>>>>>>> 8dee14e76f26079f0caf7fa95aa54975ff30355d
         self.client_name = client_name
         self.email = email
         self.category = category
         self.request_title = request_title
         self.description = description
         self.department = department
+<<<<<<< HEAD
+=======
 
     def get_request_id(self):
         return self.request_id  
@@ -49,7 +56,10 @@ class Request:
             return new_request_input
         return new_request_input  
 
+>>>>>>> 8dee14e76f26079f0caf7fa95aa54975ff30355d
 
+        self.request_id = request_id
+        
 
     def __repr__(self):
         return repr(self.__dict__) 
@@ -65,54 +75,5 @@ class User:
         self.email = email
         self.username = username
         self.password = password
-
-
-    def get_user_id(self):
-        return self.user_id
-
-    def get_name(self):
-        return self.name
-
-    def get_email(self):
-        return self.email
-
-    def get_username(self):
-        return self.username
-
-    def get_password(self):
-        return self.password  
-
-    def add_user(self):
-        users = []
-        """Register new_user"""
-        #user_id = len(users)
-        self.user_id += 1
-
-        new_user = {
-            'user_id':self.user_id,
-            'name':self.name,
-            'email':self.email,
-            'username':self.username,
-            'password':self.password
-        }
-
-        users.append(new_user)
-        return new_user 
-
-
-    def update_user(self,user_id):
-        user_id = int(user_id) 
-        new_user_input = {}
-        if len(users) > 0 and user_id <= len(users):
-            new_user_input = {
-                'user_id':user_id,
-                'name':self.name,
-                'email': self.email,
-                'username':self.username,
-                'password':self.password
-            }
-            users[user_id] = new_user_input
-            return new_user_input
-        return new_user_input  
 
 users = []
