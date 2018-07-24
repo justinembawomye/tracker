@@ -79,7 +79,7 @@ def create_request():
     if not re.match(r"([\w\.-]+)@([\w\.-]+)(\.[\w\.]+$)", email):
         return make_response(jsonify({
             "status": "Fail",
-            "message": "Enter valid email"}), 400)
+            "message": "Enter a valid email"}), 400)
     if not category or category == " ":
         return jsonify({'message': 'category is required'}), 400
     if not request_title or request_title == "":

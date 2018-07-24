@@ -53,3 +53,9 @@ class RequestTestCase(BaseTestCase):
                                                                                     "request_title": "please repair my pc",  "description": "Hey! could you please repair my pc by noon", "department": ""}), content_type='application/json')
         self.assertEqual(response.status_code, 400)
 
+    def test_create_request_with_invalid_email(self):
+        response = self.test_client.post('/api/v1/users/requests', data=json.dumps({"client_name":"kiz", "email":"deekiz.com", "category": "repair","request_title": "please repair my pc", "description": "Hey! could you please repair my pc by noon", "department": "control"}), content_type='application/json')
+        self.assertEqual(response.status_code, 400)
+        self.assertIn('Enter a valid email', str(response.data))    
+        
+
