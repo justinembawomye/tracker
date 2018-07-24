@@ -7,7 +7,7 @@ class UserTestCase(BaseTestCase):
     def test_register_user(self):
         response = self.test_client.post('/auth/register', data=json.dumps(self.user_data), content_type = 'application/json')
         self.assertEqual(response.status_code, 201)
-        self.assertIn("User Tinah has been registered",str(response.data))
+        self.assertIn("User Justine has been registered",str(response.data))
 
 
 
