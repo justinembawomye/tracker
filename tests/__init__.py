@@ -30,7 +30,8 @@ class BaseTestCase(unittest.TestCase):
 
     
     def tearDown(self):
-        pass
+        requests = []
+        users = []
 
 
     
