@@ -23,7 +23,7 @@ def register_user():
     if not re.match(r"([\w\.-]+)@([\w\.-]+)(\.[\w\.]+$)", email):
         return make_response(jsonify({
             "status": "Fail",
-            "message": "Enter valid email"}), 400)
+            "message": "Enter a valid email"}), 400)
 
     if not username or username == " " or username == type(int):
         return jsonify({'message': 'Invalid username'}), 400

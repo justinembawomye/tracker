@@ -34,6 +34,10 @@ class UserTestCase(BaseTestCase):
         self.assertEqual(response.status_code, 400)
         self.assertIn('username is required',str(response.data))
         
+    def test_register_user_with_invalid_email(self):
+        response = self.test_client.post('/auth/register', data=json.dumps({"name":"Justine", "email":"justine.com", "username":"Tinah", "password":"123456"}), content_type='application/json')
+        self.assertEqual(response.status_code, 400)
+        self.assertIn('Enter a valid email', str(response.data))    
     
 
         
