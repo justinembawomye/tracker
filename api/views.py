@@ -13,6 +13,7 @@ def register_user():
     email = user_data.get('email')
     username = str(user_data.get('username')).strip()
     password = user_data.get('password')
+    user_id = len(users) + 1
 
     if not user_data:
         return jsonify({'message': 'All fields are required'}), 400
@@ -31,11 +32,12 @@ def register_user():
     if not password or password == " " or len(password) < 5:
         return jsonify({'message': 'A stronger password  is required'}), 400
 
-    user_data['id'] = len(users)
-    # Add users
-    users.append(user_data)
 
-    return jsonify({'message': f'User {username} has been registered'}), 201
+    new_user = User(name, email, username, password, user_id)
+    users.append(new_user)
+
+
+    return jsonify({'message': f'User {name} has been registered'}), 201
 
 
 @app.route('/auth/login', methods=['POST'])
