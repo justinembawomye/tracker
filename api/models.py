@@ -8,22 +8,32 @@ class Request:
         self.request_title = request_title
         self.description = description
         self.department = department
-       
 
+    def add_request(self):
+        new_request = {
+            'client_name':self.client_name,
+            'email':self.email,
+            'category':self.category,
+            'request_title':self.request_title,
+            'description':self.description,
+            'department':self.department
+            }
 
     def __repr__(self):
-        return repr(self.__dict__) 
+        return repr(self.__dict__)
 
-requests = []        
+
+requests = []
 
 
 class User:
-    
+
     def __init__(self, user_id, name, email, username, password):
         self.user_id = 0
         self.name = name
         self.email = email
         self.username = username
         self.password = password
+
 
 users = []

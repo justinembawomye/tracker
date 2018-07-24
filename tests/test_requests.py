@@ -32,11 +32,13 @@ class RequestTestCase(BaseTestCase):
     def test_get_all_requests(self):
         """ Tests whether a user can fetch all his/her requests successfully """
 
+
         response = self.test_client.post(
             '/api/v1/users/requests', data=json.dumps(self.request_data), content_type='application/json')
         response = self.test_client.get(
             '/api/v1/users/requests', data=json.dumps(self.request_data), content_type='application/json')
         self.assertEqual(response.status_code, 200)
+
 
     def test_get_single_request(self):
         """ Tests  whether a single request can be returned by id successfully """
@@ -44,8 +46,16 @@ class RequestTestCase(BaseTestCase):
             '/api/v1/users/requests/1', data=json.dumps(self.request_data), content_type='application/json')
         self.assertEqual(response.status_code, 200)
 
+
     def test_request_with_missing_credentials(self):
         """Tests user can\'t send request with missing details"""
         response = self.test_client.post('/api/v1/users/requests', data=json.dumps({"client_name": "kiz", "email": "deekiz@gmail.com", "category": "repair",
                                                                                     "request_title": "please repair my pc",  "description": "Hey! could you please repair my pc by noon", "department": ""}), content_type='application/json')
         self.assertEqual(response.status_code, 400)
+
+    def test_create_request_with_invalid_email(self):
+        response = self.test_client.post('/api/v1/users/requests', data=json.dumps({"client_name":"kiz", "email":"deekiz.com", "category": "repair","request_title": "please repair my pc", "description": "Hey! could you please repair my pc by noon", "department": "control"}), content_type='application/json')
+        self.assertEqual(response.status_code, 400)
+        self.assertIn('Enter a valid email', str(response.data))    
+        
+

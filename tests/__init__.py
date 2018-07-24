@@ -1,4 +1,5 @@
 from api.views import app
+from api.models import User, Request
 import unittest
 
 class BaseTestCase(unittest.TestCase):
@@ -29,7 +30,8 @@ class BaseTestCase(unittest.TestCase):
 
     
     def tearDown(self):
-        pass
+        requests = []
+        users = []
 
 
     

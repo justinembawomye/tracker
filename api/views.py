@@ -13,6 +13,7 @@ def register_user():
     email = user_data.get('email')
     username = str(user_data.get('username')).strip()
     password = user_data.get('password')
+    user_id = len(users) + 1
 
     if not user_data:
         return jsonify({'message': 'All fields are required'}), 400
@@ -23,7 +24,7 @@ def register_user():
     if not re.match(r"([\w\.-]+)@([\w\.-]+)(\.[\w\.]+$)", email):
         return make_response(jsonify({
             "status": "Fail",
-            "message": "Enter valid email"}), 400)
+            "message": "Enter a valid email"}), 400)
 
     if not username or username == " " or username == type(int):
         return jsonify({'message': 'Invalid username'}), 400
@@ -31,11 +32,12 @@ def register_user():
     if not password or password == " " or len(password) < 5:
         return jsonify({'message': 'A stronger password  is required'}), 400
 
-    user_data['id'] = len(users)
-    # Add users
-    users.append(user_data)
 
-    return jsonify({'message': f'User {username} has been registered'}), 201
+    new_user = User(name, email, username, password, user_id)
+    users.append(new_user)
+
+
+    return jsonify({'message': f'User {name} has been registered'}), 201
 
 
 @app.route('/auth/login', methods=['POST'])
@@ -61,6 +63,7 @@ def create_request():
     """ Endpoint to get the request data entered by the user """
     # get request data
     request_data = request.get_json()
+
     client_name = request_data.get("client_name")
     email = request_data.get("email")
     category = request_data.get("category")
@@ -70,14 +73,13 @@ def create_request():
     request_id = len(requests) + 1
 
  # validate request data
-
     if not client_name or client_name == " " or client_name == type(int):
         return jsonify({'message': 'client name is required'}), 400
 
     if not re.match(r"([\w\.-]+)@([\w\.-]+)(\.[\w\.]+$)", email):
         return make_response(jsonify({
             "status": "Fail",
-            "message": "Enter valid email"}), 400)
+            "message": "Enter a valid email"}), 400)
     if not category or category == " ":
         return jsonify({'message': 'category is required'}), 400
     if not request_title or request_title == "":
