@@ -1,6 +1,6 @@
 from database import DatabaseConnection
-# import uuid
-# from werkzeug.security import check_password_hash, generate_password_hash
+import uuid
+from werkzeug.security import check_password_hash, generate_password_hash
 
 db_connect = DatabaseConnection()
 connect = db_connect.connection

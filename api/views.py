@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, make_response
 from .models import Request, User
 import re
 from database import DatabaseConnection
+from werkzeug.security import check_password_hash, generate_password_hash
 
 app = Flask(__name__)
 
@@ -13,7 +14,8 @@ def register_user():
     name = user_data.get('name')
     email = user_data.get('email')
     username = user_data.get('username')
-    password = user_data.get('password')
+    password  = generate_password_hash('password')
+    # password = user_data.get('password')
     is_admin = user_data.get('is_admin')
 
     if user_data:
