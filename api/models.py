@@ -12,17 +12,26 @@ cursor = db_connect.connection.cursor()
 
 
 class Request:
-    def __init__(self, client_name, email, category, request_title, description, department,  request_id):
-        self.request_id = request_id
+    def __init__(self, client_name, email, category, request_title, description, department, status='pending...'):
         self.client_name = client_name
         self.email = email
         self.category = category
         self.request_title = request_title
         self.description = description
         self.department = department
+        self.status = status
+
+
+    def create_request(self):
+        cursor.execute("INSERT INTO requests(client_name, email, category, request_title, description, department) VALUES('{}', '{}','{}','{}','{}', '{}')".format(
+    self.client_name, self.email, self.category, self.request_title, self.description, self.department))
+ 
+
 
     def __repr__(self):
         return repr(self.__dict__)
+
+
 
 
 requests = []
