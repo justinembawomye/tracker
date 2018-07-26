@@ -1,11 +1,40 @@
 from flask import Flask, request, jsonify, make_response
 from .models import Request, User
 import re
+import uuid
+from werkzeug.security import generate_password_hash, check_password_hash
+import jwt
+from flask_jwt_extended import (
+    JWTManager, jwt_required, create_access_token,
+    get_jwt_identity
+)
+import datetime
 from database import DatabaseConnection
-from werkzeug.security import check_password_hash, generate_password_hash
+from functools import wraps
+
+
+
+
 
 app = Flask(__name__)
 
+def protected(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        auth = request.authorization
+        if not auth:
+            return jsonify({'message': 'Provide token'})
+        else:
+            try:
+                jwt.decode(auth, 'secret', algorithms=['HS256'])
+            except Exception as e:
+                print(e)
+                return jsonify({'message': 'Invalid token'})
+        return f(*args, **kwargs)
+    return decorated
+
+
+   
 
 @app.route('/api/v2/auth/register', methods=['POST'])
 def register_user():
@@ -14,7 +43,7 @@ def register_user():
     name = user_data.get('name')
     email = user_data.get('email')
     username = user_data.get('username')
-    password  = generate_password_hash('password')
+    password = generate_password_hash(user_data.get('password'))
     # password = user_data.get('password')
     is_admin = user_data.get('is_admin')
 
@@ -39,8 +68,35 @@ def register_user():
 
     new_user = User(name, email, username, password, is_admin)
     new_user.add_user()
-    
 
     return jsonify({"message": f"User {name} successfully created an account"}), 201
 
 
+@app.route('/auth/login', methods=['POST'])
+def login_user():
+    connect = DatabaseConnection()
+    cursor = connect.cursor
+    login_data = request.get_json()
+    username = login_data['username']
+    password = generate_password_hash(login_data['password'])
+  
+    cursor.execute(
+        "SELECT * FROM users WHERE username = '{}'".format(login_data['username']))
+    user = cursor.fetchone()
+
+    if user:
+
+        user_object = User(user[1], user[2], user[3], user[4])
+
+        user_token = user_object.get_token()
+        return jsonify({
+            'status': 'OK',
+            'message': f'Welcome {username} You are logged in',
+            'access_token': user_token.decode('utf8')
+            }), 200
+    else:
+        return jsonify({
+            'message': f'user {username} not found'
+        }), 404
+
+   
