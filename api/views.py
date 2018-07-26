@@ -44,7 +44,6 @@ def register_user():
     email = user_data.get('email')
     username = user_data.get('username')
     password = generate_password_hash(user_data.get('password'))
-    # password = user_data.get('password')
     is_admin = user_data.get('is_admin')
 
     if user_data:
@@ -72,7 +71,7 @@ def register_user():
     return jsonify({"message": f"User {name} successfully created an account"}), 201
 
 
-@app.route('/auth/login', methods=['POST'])
+@app.route('/api/v2/auth/login', methods=['POST'])
 def login_user():
     connect = DatabaseConnection()
     cursor = connect.cursor
@@ -98,5 +97,47 @@ def login_user():
         return jsonify({
             'message': f'user {username} not found'
         }), 404
+
+   
+@app.route('/api/v2/users/requests', methods=['POST'])
+def create_request():
+
+    request_data = request.get_json()
+    client_name = request_data.get('client_name')
+    email = request_data.get('email')
+    category = request_data.get('category')
+    request_title = request_data.get('request_title')
+    description = request_data.get('description')
+    department = request_data.get('department')
+    status = request_data.get('status')
+
+    if request_data:
+        print(request_data)
+    if not request_data:
+        return jsonify({'message': 'All fields are missing'}), 400
+
+    if not client_name or client_name == " ":
+        return jsonify({'message': 'name field is missing'}), 400
+
+    if not re.match(r"([\w\.-]+)@([\w\.-]+)(\.[\w\.]+$)", email):
+        return make_response(jsonify({
+            "status": "Fail",
+            "message": "Enter a valid email"}), 400)
+
+    if not category or category == " ":
+        return jsonify({'message':'category field is missing'}), 400
+    if not request_title or request_title == " ":
+        return jsonify({'message':'request_title is missing'}), 400
+    if not description or description == " ":
+        return jsonify({'message':'description field is missing'}), 400
+    if not department or department == " ":
+        return jsonify({'message':'department field is missing'}), 400
+
+
+
+    new_request = Request(client_name, email, category, request_title, description, department, status)
+    new_request.create_request()
+
+    return jsonify({"message": f"User {client_name} successfully created a request"}), 201
 
    
