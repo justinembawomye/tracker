@@ -9,7 +9,14 @@ class UserTestCase(BaseTestCase):
         self.assertEqual(response.status_code, 201)
         self.assertIn("User Justine has been registered",str(response.data))
 
-
+    def test_register_with_no_data_provided(self):
+        response = self.test_client.post('/auth/register' ,content_type='application/json')
+        self.assertEqual(response.status_code, 400)
+   
+    def test_empty_entry(self):
+        response = self.test_client.post('/auth/register', data=json.dumps({}), content_type='application/json')
+        self.assertEqual(response.status_code, 400)
+        self.assertIn("All fields are required", str(response.data))
 
     def test_register_user_fail(self):
         """Ensures that a user with missing credentials is not registered"""
@@ -24,6 +31,7 @@ class UserTestCase(BaseTestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn("Welcome Tinah. You are logged in",str(response.data))
 
+
     def test_login_without_password(self):
         response = self.test_client.post('/auth/login', data=json.dumps({"username":"Tinah", "password":" "}), content_type = 'application/json')
         self.assertEqual(response.status_code, 400)
@@ -37,7 +45,9 @@ class UserTestCase(BaseTestCase):
     def test_register_user_with_invalid_email(self):
         response = self.test_client.post('/auth/register', data=json.dumps({"name":"Justine", "email":"justine.com", "username":"Tinah", "password":"123456"}), content_type='application/json')
         self.assertEqual(response.status_code, 400)
-        self.assertIn('Enter a valid email', str(response.data))    
+        self.assertIn('Enter a valid email', str(response.data)) 
+
+
     
 
         
