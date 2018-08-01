@@ -32,10 +32,8 @@ def register_user():
     if not password or password == " " or len(password) < 5:
         return jsonify({'message': 'A stronger password  is required'}), 400
 
-
     new_user = User(name, email, username, password, user_id)
     users.append(new_user)
-
 
     return jsonify({'message': f'User {name} has been registered'}), 201
 
@@ -130,7 +128,7 @@ def get_single_request(request_id):
         if my_request.request_id == request_id:
             return jsonify({'Request': my_request.__dict__}), 200
 
-    return jsonify({'error': 'User Not Found'}), 404
+    return jsonify({'error': 'Request Not Found! check the id'}), 404
 
 
 @app.route("/api/v1/users/requests/<int:request_id>", methods=['PUT'])
@@ -161,5 +159,5 @@ def update_request(request_id):
         return jsonify({
             "request": my_request.__dict__,
             "status": "OK",
-            "Congratulations": "You successfully modified a request",
-        })
+            "Congratulations": "You successfully modified a request"
+        }), 200
