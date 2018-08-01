@@ -13,6 +13,7 @@ class UserTestCase(BaseTestCase):
         response = self.test_client.post('/auth/register' ,content_type='application/json')
         self.assertEqual(response.status_code, 400)
    
+   
     def test_empty_entry(self):
         response = self.test_client.post('/auth/register', data=json.dumps({}), content_type='application/json')
         self.assertEqual(response.status_code, 400)
