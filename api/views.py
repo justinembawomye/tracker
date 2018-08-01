@@ -130,7 +130,7 @@ def get_single_request(request_id):
         if my_request.request_id == request_id:
             return jsonify({'Request': my_request.__dict__}), 200
 
-    return jsonify({'error': 'User Not Found'}), 404
+    return jsonify({'error': 'Request Not Found'}), 404
 
 
 @app.route("/api/v1/users/requests/<int:request_id>", methods=['PUT'])
