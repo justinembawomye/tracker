@@ -28,13 +28,6 @@ class BaseTestCase(unittest.TestCase):
             "department":"control"
         }
 
-    
-    def tearDown(self):
-        requests[:] = []
-        users[:] = []
-
-
-    
 
 if __name__ == "__main__":
     unittest.main()
