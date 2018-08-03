@@ -11,13 +11,13 @@ class Request:
 
     def add_request(self):
         new_request = {
-            'client_name':self.client_name,
-            'email':self.email,
-            'category':self.category,
-            'request_title':self.request_title,
-            'description':self.description,
-            'department':self.department
-            }
+            'client_name': self.client_name,
+            'email': self.email,
+            'category': self.category,
+            'request_title': self.request_title,
+            'description': self.description,
+            'department': self.department
+        }
 
     def __repr__(self):
         return repr(self.__dict__)
