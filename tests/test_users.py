@@ -46,6 +46,9 @@ class UserTestCase(BaseTestCase):
         self.assertEqual(response.status_code, 400)
         self.assertIn('Enter a valid email', str(response.data))
 
+    def test_register_without_password(self):
+        """Test user cannot register without providing a password"""
+
     def test_user_login(self):
         """Test user can login successfully"""
 
@@ -53,9 +56,6 @@ class UserTestCase(BaseTestCase):
             '/auth/login', data=json.dumps(self.user_login_data), content_type='application/json')
         self.assertEqual(response.status_code, 200)
         self.assertIn("Welcome Tinah. You are logged in", str(response.data))
-
-    def test_register_with_invalid_password(self):
-        """Test user cannot register without a password"""
 
     def test_login_without_password(self):
         """Test user can't login without a password"""
