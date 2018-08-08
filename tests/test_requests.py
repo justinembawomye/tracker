@@ -39,16 +39,30 @@ class RequestTestCase(BaseTestCase):
 
     def test_get_single_request(self):
         """ Tests  whether a request can be returned by id successfully """
+
         response = self.test_client.get('/api/v1/users/requests/1', data=json.dumps(self.request_data),
                                         content_type='application/json')
         self.assertEqual(response.status_code, 200)
 
     def test_get_single_request_with_invalid_id(self):
         """Tests a user can\'t get a request with invalid id"""
+        response = self.test_client.post('/api/v1/users/requests')
         response = self.test_client.get('/api/v1/users/requests/5', data=json.dumps(self.request_data),
                                         content_type='application/json')
         self.assertEqual(response.status_code, 404)
         self.assertIn("Request Not Found", str(response.data))
+
+    def test_get_single_request_unavailable(self):
+        """ Tests  whether a user can retrieve a request with an id that doesn't exist """
+        self.test_client.post(
+            '/api/v1/users/requests', data=json.dumps(self.request_data),
+            content_type='application/json')
+        self.test_client.get(
+            '/api/v1/users/requests', data=json.dumps(self.request_data), content_type='application/json')
+        response = self.test_client.get(
+            '/api/v1/users/requests/6', content_type='application/json')
+        self.assertEqual(response.status_code, 404)
+        self.assertIn('Request Not Found', str(response.data))
 
     def test_request_with_missing_credentials(self):
         """Tests user can\'t send request with missing details"""
