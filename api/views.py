@@ -39,7 +39,7 @@ def register_user():
 
 
 @app.route('/auth/login', methods=['POST'])
-def login_user():
+def user_login():
     # getting user data
     user_data = request.get_json()
     username = str(user_data.get('username')).strip()
@@ -71,6 +71,9 @@ def create_request():
     request_id = len(requests) + 1
 
  # validate request data
+    if not request_data:
+        return jsonify({'message': 'All fields are required'}), 400
+
     if not client_name or client_name == " " or client_name == type(int):
         return jsonify({'message': 'client name is required'}), 400
 

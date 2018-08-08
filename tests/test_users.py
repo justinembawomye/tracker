@@ -17,7 +17,7 @@ class UserTestCase(BaseTestCase):
         self.assertEqual(response.status_code, 400)
 
     def test_empty_entry(self):
-        """Test user cannot register with empty entry"""
+        """Test user cannot register with empty fields"""
 
         response = self.test_client.post(
             '/auth/register', data=json.dumps({}), content_type='application/json')
@@ -46,6 +46,19 @@ class UserTestCase(BaseTestCase):
         self.assertEqual(response.status_code, 400)
         self.assertIn('Enter a valid email', str(response.data))
 
+    def test_register_user_with_invalid_username(self):
+        """Test user cannot register with invalid username"""
+        response = self.test_client.post('/auth/register', data=json.dumps(
+            {"name": "Justine", "email": "justine@gmail.com", "username": "Tinah", "password": ""}), content_type='application/json')
+        self.assertEqual(response.status_code, 400)
+        self.assertIn('A stronger password  is required', str(response.data))
+
+
+        response = self.test_client.post('/auth/register', data=json.dumps(
+            {"name": "Justine", "email": "justine@gmail.com", "username": " ", "password": "123456"}), content_type='application/json')
+        self.assertEqual(response.status_code, 400)
+        self.assertIn('Invalid username', str(response.data))
+
     def test_register_without_password(self):
         """Test user cannot register without providing a password"""
 
@@ -57,39 +70,7 @@ class UserTestCase(BaseTestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn("Welcome Tinah. You are logged in", str(response.data))
 
-    def test_login_without_password(self):
-        """Test user can't login without a password"""
-
-        response = self.test_client.post('/auth/login', data=json.dumps(
-            {"username": "Tinah", "password": " "}), content_type='application/json')
-        self.assertEqual(response.status_code, 400)
-        self.assertIn('A stronger password  is required', str(response.data))
-
-    def test_login_without_username(self):
-        """Test user cannot login without a username"""
-
-        response = self.test_client.post('/auth/login', data=json.dumps(
-            {"username": " ", "password": "123456"}), content_type='application/json')
-        self.assertEqual(response.status_code, 400)
-        self.assertIn('username is required', str(response.data))
-
-    def test_register_user_with_invalid_username(self):
-        """Test user cannot register with invalid username"""
-
-        response = self.test_client.post('/auth/register', data=json.dumps(
-            {"name": "Justine", "email": "justine@gmail.com", "username": " ", "password": "123456"}), content_type='application/json')
-        self.assertEqual(response.status_code, 400)
-        self.assertIn('Invalid username', str(response.data))
-
-    def test_user_login(self):
-        """Test user can login successfully"""
-
-        response = self.test_client.post(
-            '/auth/login', data=json.dumps(self.user_login_data), content_type='application/json')
-        self.assertEqual(response.status_code, 200)
-        self.assertIn("Welcome Tinah. You are logged in", str(response.data))
-
-    def test_login_without_password(self):
+    def test_user_login_without_password(self):
         """Test user can't login without a password"""
 
         response = self.test_client.post('/auth/login', data=json.dumps(
@@ -97,18 +78,10 @@ class UserTestCase(BaseTestCase):
         self.assertEqual(response.status_code, 400)
         self.assertIn('password  is required', str(response.data))
 
-    def test_login_without_username(self):
+    def test_user_login_without_username(self):
         """Test user cannot login without a username"""
 
         response = self.test_client.post('/auth/login', data=json.dumps(
             {"username": " ", "password": "123456"}), content_type='application/json')
         self.assertEqual(response.status_code, 400)
         self.assertIn('username is required', str(response.data))
-
-    def test_register_user_with_invalid_username(self):
-        """Test user cannot register with invalid username"""
-
-        response = self.test_client.post('/auth/register', data=json.dumps(
-            {"name": "Justine", "email": "justine@gmail.com", "username": " ", "password": "123456"}), content_type='application/json')
-        self.assertEqual(response.status_code, 400)
-        self.assertIn('Invalid username', str(response.data))
